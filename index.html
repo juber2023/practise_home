@@ -1,114 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .header {
-        grid-area: head;
-        background-color: aquamarine;
-        padding: 10px;
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 100%;
+      height: 200px;
+      background-color:darkblue;
+      color: aliceblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
       }
-      .nav {
-        grid-area: nav;
-        background-color: rgb(94, 255, 0);
-        padding: 10px;
+      
+      .container::before{
+      content: ""; 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('image/animate-shape1.png');
+      animation: shape1 1s linear 1s infinite;
       }
-      a{
-          text-decoration: none;
-        }
-      .article {
-        grid-area: article;
-        background-color: brown;
-        padding: 10px;
+      
+      .container::after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('image/animate-shape2.png'); 
+      animation: shape2 1s linear 1s infinite;
       }
-      .aside {
-        grid-area: aside;
-        background-color: chartreuse;
-        padding: 10px;
+      
+      @keyframes shape1 {
+      0%{opacity: 0;}
+      50%{opacity: 1;}
+      100%{opacity: 0;}
       }
-      .ad {
-        grid-area: ad;
-        background-color: cornflowerblue;
-        padding: 10px;
-      }
-      .footer {
-        grid-area: footer;
-        background-color: crimson;
-        padding: 10px;
-      }
-      .container {
-        display: grid;
-        grid-template-columns: 0.5fr, repeat(3, 1fr);
-        /* grid-template-rows:200px 300px 300px 200px ; */
-        grid-template-areas:
-          "head head head head"
-          "nav article article aside"
-          "nav article article ad"
-          "footer footer footer footer";
-        gap: 20px;
-        grid-au
-      }
-      @media only screen and (max-width: 576px) {
-        .container {
-          display: grid;
-          grid-template-columns: 1fr;
-          /* grid-template-rows:200px 300px 300px 200px ; */
-          grid-template-areas:
-            "head "
-            "nav "
-            "article"
-            "aside"
-            "ad"
-            "footer";
-          gap: 20px;
-        }
-      }
-      @media only screen and (min-width: 577px) and (max-width:992px){
-        .container {
-          display: grid;
-          grid-template-columns: 0.5fr, repeat(3, 1fr);
-          /* grid-template-rows:200px 300px 300px 200px ; */
-          grid-template-areas:
-          "head head head head"
-          "nav nav nav nav"
-          "aside article article article"
-          "ad footer footer footer";
-          gap: 20px;
-        }
-        ul{
-          display:flex;
-          list-style: none;
-          justify-content: space-around;
+      
+      @keyframes shape2 {
+      0%{opacity: 0;}
+      50%{opacity: 1;}
+      100%{opacity: 0;}
+       }
 
-        }
-        
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header"><h1>The header</h1></div>
-      <div class="nav">
-        <ul>
-          <li><a href="">nav-1</a></li>
-          <li><a href="">nav-2</a></li>
-          <li><a href="">nav-3</a></li>
-        </ul>
-      </div>
-      <div class="article">
-        <h1>Main article area</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          impedit quam eaque, distinctio eveniet at numquam! Amet distinctio
-          quod animi.
-        </p>
-      </div>
-      <div class="aside"><h1>Sidebar</h1></div>
-      <div class="ad"><h1>Advertising</h1></div>
-      <div class="footer"><h1>The footer</h1></div>
-    </div>
-  </body>
+  </style>
+</head>
+<body>
+  <div class="container">
+    I am a web developer
+     </div>
+  
+</body>
 </html>
